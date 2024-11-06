@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex max-w-[1440px] mx-auto w-full">
+      <!-- Sidebar  -->
+      <div class="w-1/4 h-screen text-center flex flex-col">
+        <div class="flex gap-10 items-center ml-5">
+          <a class="underline hover:text-blue-500" href="/lab3/lab3.html"
+            >Back</a
+          >
+          <h2 class="font-bold text-3xl p-5">Lessons</h2>
+        </div>
+        <div class="flex flex-col border rounded border-gray-500 m-5">
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab1-QuanLyDiem.pdf"
+          >
+            Lab1
+          </div>
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab2-Tinh cuoc su dung dien.pdf"
+          >
+            Lab2
+          </div>
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab3-Strategy Pattern.pdf"
+          >
+            Lab3
+          </div>
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab4-Observer Pattern.pdf"
+          >
+            Lab4
+          </div>
+
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab5-Decorator Pattern.pdf"
+          >
+            Lab5
+          </div>
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab6-Factory Pattern.pdf"
+          >
+            Lab6
+          </div>
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab7-Adapter Pattern.pdf"
+          >
+            Lab7
+          </div>
+          <div
+            class="lesson-item border-b hover:bg-blue-500 hover:text-white transition-all cursor-pointer border-black p-5"
+            data-pdf="/assets/Lab8-Template method Pattern.pdf"
+          >
+            Lab8
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson content -->
+      <div class="w-3/4 h-screen">
+        <div class="flex flex-col">
+          <h2 class="font-bold text-3xl p-5">Content</h2>
+          <div class="w-full p-5 h-[calc(100vh-60px)]">
+            <iframe
+              id="pdfViewer"
+              src="/assets/Lab1-QuanLyDiem.pdf"
+              title="PDF Viewer"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const lessonItems = document.querySelectorAll(".lesson-item");
+      const pdfViewer = document.getElementById("pdfViewer");
+
+      lessonItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const pdfFile = item.getAttribute("data-pdf");
+          pdfViewer.src = pdfFile;
+        });
+      });
+    </script>
+  </body>
+</html>
